@@ -1,9 +1,9 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
-
 }
 
 android {
