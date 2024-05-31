@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "SiburApp"
 include(":app")
- 
+include(":data")
+include(":domain")

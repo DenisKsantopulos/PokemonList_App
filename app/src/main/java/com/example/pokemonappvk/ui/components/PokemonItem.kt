@@ -19,13 +19,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.pokemonappvk.domain.model.Pokemon
+import com.example.pokemonapp.domain.model.Pokemon
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokemonItem(
-    pokemon: Pokemon,
-    onPokemonItemClicked: (Pokemon) -> Unit
+    pokemon: com.example.pokemonapp.domain.model.Pokemon,
+    onPokemonItemClicked: (com.example.pokemonapp.domain.model.Pokemon) -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -66,7 +66,7 @@ fun PokemonItem(
 @Composable
 fun PreviewPokemonItem() {
     PokemonItem(
-        pokemon = Pokemon(
+        pokemon = com.example.pokemonapp.domain.model.Pokemon(
             name = "ivysaur",
             url = "https://pokeapi.co/api/v2/pokemon/2/"
         )

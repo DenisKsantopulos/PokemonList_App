@@ -34,6 +34,8 @@ mockk = "1.13.9"
 androidx-arch-testing = "2.2.0"
 turbine = "1.0.0"
 assertj = "3.25.3"
+appcompat = "1.7.0"
+jetbrainsKotlinJvm = "1.9.0"
 
 
 [libraries]
@@ -75,6 +77,7 @@ androidx-arch-testing = { module = "androidx.arch.core:core-testing", version.re
 androidx-paging-testing = { module = "androidx.paging:paging-common", version.ref = "androidx-paging" }
 turbine-testing = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -82,4 +85,5 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 

@@ -2,8 +2,8 @@ package com.example.pokemonappvk.presentation.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pokemonappvk.domain.usecase.detail.GetPokemonDetails
-import com.example.pokemonappvk.domain.usecase.detail.PokemonDetailsRequestState
+import com.example.pokemonapp.domain.usecase.detail.GetPokemonDetails
+import com.example.pokemonapp.domain.usecase.detail.PokemonDetailsRequestState
 import com.example.pokemonappvk.presentation.details.intent.DetailsIntent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    private val getPokemonDetails: GetPokemonDetails
+    private val getPokemonDetails: com.example.pokemonapp.domain.usecase.detail.GetPokemonDetails
 ) : ViewModel() {
 
     private val _pokemonDetailsState: MutableStateFlow<DetailsUiState> =
@@ -31,16 +31,16 @@ class DetailsViewModel @Inject constructor(
         viewModelScope.launch {
             getPokemonDetails.invoke(name).collect { detailsRequestState ->
                 _pokemonDetailsState.value = when (detailsRequestState) {
-                    is PokemonDetailsRequestState.Exception -> DetailsUiState.Exception(
+                    is com.example.pokemonapp.domain.usecase.detail.PokemonDetailsRequestState.Exception -> DetailsUiState.Exception(
                         code = detailsRequestState.code,
                         exception = detailsRequestState.exception
                     )
 
-                    is PokemonDetailsRequestState.Success -> DetailsUiState.Success(
+                    is com.example.pokemonapp.domain.usecase.detail.PokemonDetailsRequestState.Success -> DetailsUiState.Success(
                         data = detailsRequestState.data
                     )
 
-                    PokemonDetailsRequestState.Loading -> DetailsUiState.Loading
+                    com.example.pokemonapp.domain.usecase.detail.PokemonDetailsRequestState.Loading -> DetailsUiState.Loading
                 }
             }
         }

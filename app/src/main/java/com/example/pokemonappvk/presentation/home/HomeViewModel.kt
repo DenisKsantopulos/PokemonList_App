@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.example.pokemonappvk.domain.model.Pokemon
-import com.example.pokemonappvk.domain.usecase.pokemons.GetPokemonsList
+import com.example.pokemonapp.domain.model.Pokemon
+import com.example.pokemonapp.domain.usecase.pokemons.GetPokemonsList
 import com.example.pokemonappvk.presentation.home.intent.HomeIntent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,13 +15,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getPokemonsList: GetPokemonsList
+    private val getPokemonsList: com.example.pokemonapp.domain.usecase.pokemons.GetPokemonsList
 ) : ViewModel() {
 
 
-    private val _pokemonsListState: MutableStateFlow<PagingData<Pokemon>> =
+    private val _pokemonsListState: MutableStateFlow<PagingData<com.example.pokemonapp.domain.model.Pokemon>> =
         MutableStateFlow(value = PagingData.empty())
-    val pokemonsListState: MutableStateFlow<PagingData<Pokemon>> get() = _pokemonsListState
+    val pokemonsListState: MutableStateFlow<PagingData<com.example.pokemonapp.domain.model.Pokemon>> get() = _pokemonsListState
 
     init {
         processIntent(HomeIntent.GetPokemonsList)

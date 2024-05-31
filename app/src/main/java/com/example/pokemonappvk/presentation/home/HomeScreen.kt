@@ -17,7 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.example.pokemonappvk.domain.model.Pokemon
+import com.example.pokemonapp.domain.model.Pokemon
 import com.example.pokemonappvk.ui.components.AppLoader
 import com.example.pokemonappvk.ui.components.AppTopBar
 import com.example.pokemonappvk.ui.components.PokemonItem
@@ -28,7 +28,7 @@ fun HomeScreen(
     homeViewModel: HomeViewModel = hiltViewModel(),
     onHomeItemSelected: (String) -> Unit
 ) {
-    val pokemons: LazyPagingItems<Pokemon> =
+    val pokemons: LazyPagingItems<com.example.pokemonapp.domain.model.Pokemon> =
         homeViewModel.pokemonsListState.collectAsLazyPagingItems()
 
     Scaffold(
