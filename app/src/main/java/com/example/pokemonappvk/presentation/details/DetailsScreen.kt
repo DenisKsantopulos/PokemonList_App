@@ -1,5 +1,6 @@
 package com.example.pokemonappvk.presentation.details
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,6 +20,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -49,6 +52,14 @@ fun DetailsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            MaterialTheme.colorScheme.surface,
+                            MaterialTheme.colorScheme.primary
+                        )
+                    )
+                )
         ) {
             when (state) {
                 is DetailsUiState.Exception -> {
@@ -71,7 +82,7 @@ fun DetailsScreen(
                             defaultElevation = 0.dp
                         ),
                         colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surface
+                            containerColor = Color.Transparent
                         ),
                     ) {
 
@@ -107,7 +118,7 @@ fun DetailsScreen(
                             defaultElevation = 0.dp
                         ),
                         colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surface
+                            containerColor = Color.Transparent  //MaterialTheme.colorScheme.surface
                         ),
                     ) {
 
